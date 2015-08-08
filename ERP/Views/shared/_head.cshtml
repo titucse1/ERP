@@ -1,0 +1,78 @@
+﻿<head>
+ <meta charset="utf-8">
+		<title>OG ERP</title>
+		<meta name="description" content="description">
+		<meta name="author" content="nazrul">
+		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet" type="text/css">
+        
+        <!-- font Awesome -->
+ 
+        <link href="@Url.Content("~/Content/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
+        <!-- Ionicons -->
+        
+        <link href="@Url.Content("~/Content/css/ionicons.min.css")" rel="stylesheet" type="text/css">
+       
+       
+        <!-- Theme style -->
+        <link href="@Url.Content("~/Content/css/AdminLTE.css")" rel="stylesheet" type="text/css">
+
+             
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- jQuery UI 1.10.3 -->
+        <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script> 
+
+        <!-- AdminLTE App -->
+       
+        <script src="@Url.Content("~/Scripts/AdminLTE/app.js")"></script>
+        
+
+        <script type="text/javascript">
+
+
+
+            function get_Ajax_Data(url) {
+                if (url != '')
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:53887/' + url,
+                        beforeSend: function () {
+                            // setting a timeout
+                            $('#preLoader').show();
+                            $('#contentArea').html('');
+                        },
+                        success: function (data) {
+                            $('#contentArea').html(data);
+                            $('#preLoader').hide();
+                        },
+                        error: function (xhr) {
+                            $('#preLoader').show();
+                        }
+                    });
+
+
+                }
+
+
+
+                $(window).on('hashchange', function (e) {
+                    url = '';
+                    var url = location.hash.replace(/^#/, '');
+                    if (url.length < 1) {
+                        url = '';
+                    }
+
+                    get_Ajax_Data(url);
+
+                });
+
+
+        </script>
+
+    </head>
+
+
+
+    <body class="skin-blue">
+    

@@ -1,0 +1,33 @@
+﻿@RenderPage("~/Views/shared/_head.cshtml")
+
+@RenderPage("~/Views/shared/_header.cshtml")
+<!--Start Container-->
+
+<aside id="preLoader"><img border="0" src="http://192.168.1.1/device/images/loading_large.gif"></aside>
+  <div class="wrapper row-offcanvas row-offcanvas-left">
+              <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+@RenderPage("~/Views/shared/_sidebar_left.cshtml")
+            </aside>
+            
+            <!-- Right side column. Contains the navbar and content of the page -->
+            
+            <aside id="contentArea" class="right-side">
+
+           
+             
+         
+            @RenderBody()  
+           
+            
+               
+            </aside><!-- /.right-side -->
+
+   </div>
+
+
+
+@RenderPage("~/Views/shared/_footer.cshtml")
+
+
